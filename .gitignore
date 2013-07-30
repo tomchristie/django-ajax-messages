@@ -1,0 +1,6 @@
+*.pyc
+*.sqlite3
+MANIFEST
+dist/
+build/
+*.egg-info/

@@ -1,2 +1,1 @@
-https://www.djangoproject.com/download/1.6b1/tarball/
-djangorestframework
+django>=1.5

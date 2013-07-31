@@ -12,11 +12,11 @@ This is similar to Django's `contrib.messages` application, except that once cre
 
 **Example messaging for an in-progress operation:**
 
-![Pending](pending.png)
+![Pending](screenshots/pending.png)
 
 **Example messaging for an successfully completed operation:**
 
-![Pending](success.png)
+![Pending](screenshots/success.png)
 
 #### Testing
 

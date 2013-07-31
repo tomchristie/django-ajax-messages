@@ -147,7 +147,7 @@ Download [Bootstrap] and [FontAwesome] and place the stylesheets and fonts in yo
 
 You can customize how messages display by creating a template in your top level project templates directory, named `ajaxmessages/messages.html`.
 
-You can use 
+You can then use styles other than the default Bootstrap styles.
 
 ## License
 

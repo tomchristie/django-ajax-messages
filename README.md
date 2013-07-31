@@ -12,7 +12,7 @@ This is similar to Django's `contrib.messages` application, except that once cre
 
 ---
 
-#### Screenshots
+## Screenshots
 
 **Example messaging for an in-progress operation:**
 
@@ -22,9 +22,11 @@ This is similar to Django's `contrib.messages` application, except that once cre
 
 ![Pending](screenshots/success.png)
 
-#### Testing
+---
 
-There is a simple test project included in this repository, that demostrates the usage of Django AJAX messages.  To use it clone the repository, and open a console.
+## Testing Django AJAX messages
+
+There is a simple test project included in this repository.  The example project can be run as follows:
 
     git clone git@github.com:tomchristie/django-ajax-messages.git
     cd django-ajax-messages/testproject
@@ -48,6 +50,16 @@ Then, in a seperate window start the example `tick` management command that will
 
 Now open [http://127.0.0.1:8000]() in a browser window, login to the app, and click the 'Create message' button a few times.
 
+---
+
+## Notes
+
+#### Messaging behaviour
+
+* Messages that are pending will continue to display throughout subsequant page loads.
+* Once a message has been displayed as succeeded or failed it will now longer be displayed on subsequant page loads.
+* The AJAX updates will only take place when a page has messages displayed.  Once a user dismisses any messages on the page, or when a page is loaded without messaging, the AJAX refreshs will no longer occur.
+
 #### Limitations
 
 * Messages can only be issued to authenticated users.  There is no provision for messaging unauthenticated sessions.
@@ -55,6 +67,8 @@ Now open [http://127.0.0.1:8000]() in a browser window, login to the app, and cl
 * When pending messages refresh, the alert box is always reloading, even if nothing has changed.  This causes the spinner to jerk forward every so often instead of spinning smoothly. 
 * Expired messages are currently never removed from the database.
 * Displaying messages currently requires a database lookup.  Cache support would be nice.
+
+---
 
 ## Installation
 

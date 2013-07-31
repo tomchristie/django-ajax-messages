@@ -8,6 +8,10 @@ The `django-ajax-messages` package allows you to add auto-refreshing messages to
 
 This is similar to Django's `contrib.messages` application, except that once created, messages can be updated, and will automatically refresh in the browser.
 
+**Requirements**: Django 1.5+.
+
+---
+
 #### Screenshots
 
 **Example messaging for an in-progress operation:**
@@ -22,18 +26,23 @@ This is similar to Django's `contrib.messages` application, except that once cre
 
 There is a simple test project included in this repository, that demostrates the usage of Django AJAX messages.  To use it clone the repository, and open a console.
 
-    virtualenv env                # Keep everything clean by creating a fresh virtual environment.
+    git clone git@github.com:tomchristie/django-ajax-messages.git
+    cd django-ajax-messages/testproject
+    virtualenv env                  # Keep everything clean by creating a fresh virtual environment.
     source env/bin/activate
-    pip install requirements.txt  # Install Django
-    cd testproject
-    export PYTHONPATH=..          # Ensure the local copy of `ajaxmessages` is available to import.
-    python ./manage.py syncdb     # Make sure you create a superuser to test with.
-    python ./manage.py runserver
-    
-Then in a seperate window start the example `tick` management command that will asyncronously update the messages.
+    pip install -r requirements.txt # Install Django, South
+    export PYTHONPATH=..            # Ensure the local copy of `ajaxmessages` is available to import.
 
-    source env/bin/activate
+Now create the database, **making sure to create an initial user**.
+
+    python ./manage.py syncdb       # Make sure you create a superuser to test with.
+    python ./manage.py migrate
+    python ./manage.py runserver
+
+Then, in a seperate window start the example `tick` management command that will asyncronously update the messages.
+
     cd testproject
+    source env/bin/activate
     export PYTHONPATH=..
     python ./manage.py tick
 
@@ -42,7 +51,7 @@ Now open [http://127.0.0.1:8000]() in a browser window, login to the app, and cl
 #### Limitations
 
 * Messages can only be issued to authenticated users.  There is no provision for messaging unauthenticated sessions.
-* Message refreshing is currently hardcoded to 5 seconds.  This should probably be a setting.
+* Message refreshing is currently hardcoded to 2 seconds.  This should probably be a setting.
 * When pending messages refresh, the alert box is always reloading, even if nothing has changed.  This causes the spinner to jerk forward every so often instead of spinning smoothly. 
 * Expired messages are currently never removed from the database.
 * Displaying messages currently requires a database lookup.  Cache support would be nice.

@@ -114,4 +114,4 @@ STATIC_URL = '/static/'
 # Authentication
 
 LOGIN_URL = '/login/'
-
+LOGIN_REDIRECT_URL = '/'

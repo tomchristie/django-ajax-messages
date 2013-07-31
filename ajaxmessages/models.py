@@ -10,7 +10,7 @@ STATUS_CHOICES = (
 
 
 class Message(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL)
+    user = models.ForeignKey(getattr(settings, 'AUTH_USER_MODEL', 'auth.User'))
     status = models.CharField(choices=STATUS_CHOICES, max_length=1)
     text = models.CharField(max_length=1000)
     displayed = models.BooleanField(default=False)

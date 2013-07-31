@@ -12,7 +12,7 @@ STATUS_CHOICES = (
 class Message(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
     status = models.CharField(choices=STATUS_CHOICES, max_length=1)
-    message = models.CharField(max_length=1000)
+    text = models.CharField(max_length=1000)
     displayed = models.BooleanField(default=False)
 
     tag_map = {
@@ -55,5 +55,10 @@ class Message(models.Model):
     def allow_dismiss(self):
         return self.allow_dismiss_map[self.status]
 
+    def mark_as_displayed(self):
+        if self.status != 'p':
+            self.displayed = True
+            self.save()
+
     def __str__(self):
-        return self.message
+        return self.text

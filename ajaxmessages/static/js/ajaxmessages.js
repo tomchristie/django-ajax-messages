@@ -21,6 +21,6 @@
     }
 
     $(document).ready(function() {
-        window.setInterval(reloadMessages, 5000);
+        window.setInterval(reloadMessages, 2000);
     });
 })(jQuery);

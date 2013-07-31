@@ -13,7 +13,7 @@ class Migration(SchemaMigration):
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('user', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.User'])),
             ('status', self.gf('django.db.models.fields.CharField')(max_length=1)),
-            ('message', self.gf('django.db.models.fields.CharField')(max_length=1000)),
+            ('text', self.gf('django.db.models.fields.CharField')(max_length=1000)),
             ('displayed', self.gf('django.db.models.fields.BooleanField')(default=False)),
         ))
         db.send_create_signal(u'ajaxmessages', ['Message'])
@@ -29,7 +29,7 @@ class Migration(SchemaMigration):
             'Meta': {'object_name': 'Message'},
             'displayed': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'message': ('django.db.models.fields.CharField', [], {'max_length': '1000'}),
+            'text': ('django.db.models.fields.CharField', [], {'max_length': '1000'}),
             'status': ('django.db.models.fields.CharField', [], {'max_length': '1'}),
             'user': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['auth.User']"})
         },

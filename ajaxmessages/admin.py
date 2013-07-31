@@ -3,7 +3,7 @@ from django.contrib import admin
 
 
 class MessageAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('user', 'status', 'text', 'displayed')
 
 
 admin.site.register(Message, MessageAdmin)

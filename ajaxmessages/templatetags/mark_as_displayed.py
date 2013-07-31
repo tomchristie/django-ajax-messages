@@ -5,9 +5,7 @@ register = template.Library()
 
 def mark_as_displayed(messages):
     for message in messages:
-        if message.status != 'p':
-            message.displayed = True
-            message.save()
+        message.mark_as_displayed()
     return ''
 
 register.simple_tag(mark_as_displayed)

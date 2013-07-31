@@ -1,0 +1,71 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Django AJAX messages</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" media="screen">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/default.css' %}" rel="stylesheet" media="screen">
+
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Django AJAX messages</a>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="starter-template">
+        <h1>Django AJAX Messages</h1>
+        <br/>
+        <div>
+            {% if form.errors %}
+            <p>Your username and password didn't match. Please try again.</p>
+            {% endif %}
+
+            <form method="post" action="{% url django.contrib.auth.views.login %}">
+            {% csrf_token %}
+              <fieldset>
+                <div class="form-group">
+                <td>{{ form.username.label_tag }}</td>
+                <td>{{ form.username }}</td>
+                </div>
+                <div class="form-group">
+                <td>{{ form.password.label_tag }}</td>
+                <td>{{ form.password }}</td>
+                </div>
+              </fieldset>
+
+            <button class="btn   btn-primary" type="submit" value="login">Login</button>
+            <input type="hidden" name="next" value="{{ next }}" />
+            </form>
+        </div>
+      </div>
+
+    </div><!-- /.container -->
+
+    <!-- JavaScript plugins (requires jQuery) -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="{% static 'js/ajaxmessages.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  </body>
+</html>

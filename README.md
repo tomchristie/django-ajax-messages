@@ -64,7 +64,7 @@ Now open [http://127.0.0.1:8000]() in a browser window, login to the app, and cl
 
 * Messages can only be issued to authenticated users.  There is no provision for messaging unauthenticated sessions.
 * Message refreshing is currently hardcoded to 2 seconds.  This should probably be a setting.
-* When pending messages refresh, the alert box is always reloading, even if nothing has changed.  This causes the spinner to jerk forward every so often instead of spinning smoothly. 
+* When pending messages refresh, the alert box is always reloading, even if nothing has changed.  This can sometimes cause the spinner to jerk forward every so often instead of spinning smoothly. 
 * Expired messages are currently never removed from the database.
 * Displaying messages currently requires a database lookup.  Cache support would be nice.
 

@@ -40,7 +40,7 @@ class Migration(SchemaMigration):
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'text': ('django.db.models.fields.CharField', [], {'max_length': '1000'}),
             'status': ('django.db.models.fields.CharField', [], {'max_length': '1'}),
-            'user': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['auth.User']"})
+            'user': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['%s']" % user_orm_label})
         },
         u'auth.group': {
             'Meta': {'object_name': 'Group'},

@@ -1,4 +1,5 @@
 from ajaxmessages.models import Message
+from django.core.urlresolvers import reverse
 
 
 def ajaxmessages(request):
@@ -9,5 +10,6 @@ def ajaxmessages(request):
     refresh = any([message.requires_refresh for message in messages])
     return {
         'ajaxmessages': messages,
-        'ajaxmessages_refresh': refresh
+        'ajaxmessages_refresh': refresh,
+        'ajaxmessages_url': reverse('ajaxmessages')
     }

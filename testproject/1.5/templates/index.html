@@ -1,0 +1,56 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Django AJAX messages</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" media="screen">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/default.css' %}" rel="stylesheet" media="screen">
+
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Django AJAX messages</a>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <br/>
+      {% include "ajaxmessages/messages.html" %}
+
+      <div class="starter-template">
+        <h1>Django AJAX Messages</h1>
+        <p class="lead">Auto-updating user messages</p>
+        <form method="POST" action=".">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-primary">Create message</button>
+        </form>
+      </div>
+
+    </div><!-- /.container -->
+
+    <!-- JavaScript plugins (requires jQuery) -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="{% static 'js/ajaxmessages.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  </body>
+</html>

@@ -1,6 +1,6 @@
 {% load mark_as_displayed %}
 
-<div class='ajaxmessages' {% if ajaxmessages_refresh %}data-refresh="{% url 'ajaxmessages' %}"{% endif %}>
+<div class='ajaxmessages' {% if ajaxmessages_refresh %}data-refresh="{{ ajaxmessages_url }}"{% endif %}>
 {% if ajaxmessages %}
     {% for message in ajaxmessages %}
         <div class="ajaxmessage alert {{ message.tag }}" data-identity="{{ message.id }}">
